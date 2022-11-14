@@ -80,3 +80,8 @@ Answer: `S-1-5-32-544`
 
 Answer: `4799`
 
+## Resources
+
+* [EVTX Attack Samples (a few were used in this room)](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES)
+* [PowerShell <3 the Blue Team](https://devblogs.microsoft.com/powershell/powershell-the-blue-team/)
+* [Tampering with Windows Event Tracing: Background, Offense, and Defense](https://medium.com/palantir/tampering-with-windows-event-tracing-background-offense-and-defense-4be7ac62ac63)
