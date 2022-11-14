@@ -102,5 +102,35 @@ Answer: `Event read direction`
 
 Answer: `Maximum number of events to read`
 
-
 ## Using Get-WinEvent
+
+What are the names of the logs related to OpenSSH?
+
+    Get-WinEvent -ListLog *
+
+Answer: `OpenSSH/Admin,OpenSSH/Operational`
+
+Search for *PowerShell*. What is the name of the 3rd log provider?
+
+    Get-WinEvent -ListProvider *PowerShell*
+
+Answer: `Microsoft-Windows-PowerShell-DesiredStateConfiguration-FileDownloadManager`
+
+Use Microsoft-Windows-PowerShell as the log provider. How many event ids are displayed for this event provider?
+
+    (Get-WinEvent -ListProvider Microsoft-Windows-PowerShell).Events | Format-Table Id, Description
+
+Answer: `192`
+
+How do you specify the number of events to display?
+
+Answer: `-MaxEvents`
+
+When using the FilterHashtable parameter and filtering by level, what is the value for Informational?
+
+Answer: `4`
+
+## Resources
+
+* [Get-WinEvent](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/Get-WinEvent?view=powershell-7.3&viewFallbackFrom=powershell-7.1)
+* [Measure-Object](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-object?view=powershell-7.2)
