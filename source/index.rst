@@ -24,7 +24,7 @@ Security operations & monitoring
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Sysinternals
+   :caption: Windows sysinternals
 
    docs/sysinternals/README.md
    docs/sysinternals/live.md
@@ -34,6 +34,20 @@ Security operations & monitoring
    docs/sysinternals/security.md
    docs/sysinternals/sysinfo.md
    docs/sysinternals/misc.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Windows event logs
+
+   docs/wlogs/README.md
+   docs/wlogs/viewer.md
+   docs/wlogs/wevtutil.md
+   docs/wlogs/winevent.md
+   docs/wlogs/xpath.md
+   docs/wlogs/ids.md
+   docs/wlogs/scenarios.md
 
 .. toctree::
    :caption: Links
