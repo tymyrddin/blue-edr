@@ -13,6 +13,5 @@ statistical analysis, to yield correlations between seemingly unrelated events o
 
 * [Event logs](events.md)
 * [XPath queries](xpath.md)
-* [Event IDs](ids.md)
 * [Scenarios](scenarios.md)
 

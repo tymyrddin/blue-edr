@@ -44,7 +44,6 @@ Security operations & monitoring
    docs/wlogs/README.md
    docs/wlogs/events.md
    docs/wlogs/xpath.md
-   docs/wlogs/ids.md
    docs/wlogs/scenarios.md
 
 .. toctree::

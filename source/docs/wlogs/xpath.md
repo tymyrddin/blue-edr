@@ -30,3 +30,7 @@ Answer: `12/17/2020 1:57:14 PM`
 6. What is the Provider Name?
 
 Answer: `Microsoft-Windows-Security-Auditing`
+
+## Resources
+
+* [XML Path Language (XPath) Version 1.0](https://www.w3.org/TR/1999/REC-xpath-19991116/#section-Introduction)
