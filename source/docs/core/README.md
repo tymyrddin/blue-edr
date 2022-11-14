@@ -1,6 +1,6 @@
 # Introduction
 
-| ![Unified Kill Chain](../../_static/images/windows-boot.png)
+| ![Windows core boot](../../_static/images/windows-boot.png)
 |:--:|
 | Windows core boot |
 

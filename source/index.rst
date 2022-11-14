@@ -21,6 +21,21 @@ Security operations & monitoring
    docs/core/explorer.md
 
 .. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Sysinternals
+
+   docs/sysinternals/README.md
+   docs/sysinternals/live.md
+   docs/sysinternals/file.md
+   docs/sysinternals/network.md
+   docs/sysinternals/process.md
+   docs/sysinternals/security.md
+   docs/sysinternals/sysinfo.md
+   docs/sysinternals/misc.md
+
+.. toctree::
    :caption: Links
 
    Blue Team <https://tymyrddin.github.io/blue/>
