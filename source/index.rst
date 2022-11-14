@@ -42,9 +42,7 @@ Security operations & monitoring
    :caption: Windows event logs
 
    docs/wlogs/README.md
-   docs/wlogs/viewer.md
-   docs/wlogs/wevtutil.md
-   docs/wlogs/winevent.md
+   docs/wlogs/events.md
    docs/wlogs/xpath.md
    docs/wlogs/ids.md
    docs/wlogs/scenarios.md

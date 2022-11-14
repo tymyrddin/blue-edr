@@ -30,20 +30,7 @@ Malware writers have used ADS to hide data in an endpoint, but not all its uses 
 file from the Internet unto an endpoint, there are identifiers written to ADS to identify that it was downloaded 
 from the Internet.
 
-## SDelete
-
-"[SDelete](https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete) is a command line utility that takes a 
-number of options. In any given use, it allows you to delete one or more files and/or directories, or to cleanse the 
-free space on a logical disk." 
-
-SDelete (Secure Delete) implements the 
-[DOD 5220.22-M (Department of Defense clearing and sanitizing protocol)](https://www.lifewire.com/dod-5220-22-m-2625856) 
-and has been used by adversaries and is associated with MITRE techniques 
-[T1485 (Data Destruction)](https://attack.mitre.org/techniques/T1485/) and 
-[T1070.004 (Indicator Removal on Host: File Deletion)](https://attack.mitre.org/techniques/T1070/004/) in 
-[MITRE ID S0195](https://attack.mitre.org/software/S0195/).
-
-## Question
+### Question
 
 There is a txt file on the desktop named `file.txt`. Using one of the three tools, what is the text within the ADS?
 
@@ -57,5 +44,20 @@ There is an `ads.txt` inside.
     C:\Users\Administrator>notepad file.txt:ads.txt
 
 Answer: I am hiding in the stream.
+
+## SDelete
+
+"[SDelete](https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete) is a command line utility that takes a 
+number of options. In any given use, it allows you to delete one or more files and/or directories, or to cleanse the 
+free space on a logical disk." 
+
+SDelete (Secure Delete) implements the 
+[DOD 5220.22-M (Department of Defense clearing and sanitizing protocol)](https://www.lifewire.com/dod-5220-22-m-2625856) 
+and has been used by adversaries and is associated with MITRE techniques 
+[T1485 (Data Destruction)](https://attack.mitre.org/techniques/T1485/) and 
+[T1070.004 (Indicator Removal on Host: File Deletion)](https://attack.mitre.org/techniques/T1070/004/) in 
+[MITRE ID S0195](https://attack.mitre.org/software/S0195/).
+
+
 
 

@@ -34,9 +34,3 @@ Create a network drive and run the tool from the mapped drive:
     C:\Users\Administrator>net use * \\live.sysinternals.com\tools\
 
 The website is now browsable within the local machine.
-
-## Question
-
-What service needs to be enabled on the local host to interact with live.sysinternals.com? 
-
-Answer: Webclient

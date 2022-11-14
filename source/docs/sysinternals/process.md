@@ -11,6 +11,26 @@ utilities." (official definition)
 
 This is a good tool to search for any malicious entries created in the local machine to establish Persistence.
 
+### Questions
+
+Run Autoruns and inspect what are the new entries in the Image Hijacks tab compared to the screenshot earlier.
+
+| ![Unified Kill Chain](../../_static/images/autoruns-image-hijacks.png)
+|:--:|
+| Earlier |
+
+| ![Unified Kill Chain](../../_static/images/autoruns-image-hijacks2.png)
+|:--:|
+| Now |
+
+What entry was updated?
+
+Answer: `taskmgr.exe`
+
+What is the updated value?
+
+Answer: `c:\tools\sysint\procexp.exe`
+
 ## ProcDump
 
 "[ProcDump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump) is a command-line utility whose primary 
@@ -50,22 +70,3 @@ PsExec is another tool that is utilized by adversaries. This tool is associated 
 
 [Everything You Wanted to know About Psexec ->](https://adamtheautomator.com/psexec/)
 
-## Questions
-
-Run Autoruns and inspect what are the new entries in the Image Hijacks tab compared to the screenshot earlier.
-
-| ![Unified Kill Chain](../../_static/images/autoruns-image-hijacks.png)
-|:--:|
-| Earlier |
-
-| ![Unified Kill Chain](../../_static/images/autoruns-image-hijacks2.png)
-|:--:|
-| Now |
-
-What entry was updated?
-
-Answer: `taskmgr.exe`
-
-What is the updated value?
-
-Answer: `c:\tools\sysint\procexp.exe`
