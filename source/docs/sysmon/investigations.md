@@ -160,9 +160,17 @@ Answer: `"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -c "$x=$((g
 
 **What is the IP of the adversary?**
 
+| ![Sysmon](../../_static/images/3-4.png)
+|:--:|
+| Not found in `Hostname`, but in `DestinationPort`. |
+
 Answer: `172.168.103.188`
 
 **What is the full path of the payload location?**
+
+| ![Sysmon](../../_static/images/3-5.png)
+|:--:|
+| Instead of hiding in the registry, hides in a process, `EventID 1` (Process Create). |
 
 Answer: `c:\users\q\AppData:blah.txt`
 
