@@ -25,7 +25,7 @@ The first technique we will be looking at is hiding files using alternate data s
         </FileCreateStreamHash>
     </RuleGroup>
 
-## Basic ADS
+## Files hiding in ADS
 
 Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_ADS.evtx` in Event Viewer to view hidden files using 
 an alternate data stream.
