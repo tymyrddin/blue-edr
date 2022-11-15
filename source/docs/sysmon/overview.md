@@ -121,4 +121,4 @@ The event log is located under `Applications and Services Logs/Microsoft/Windows
 
 * [Sysmon v14.12](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
 * [sysmon-config | A Sysmon configuration file for everybody to fork](https://github.com/SwiftOnSecurity/sysmon-config)
-* [ ion-storm / sysmon-config](https://github.com/ion-storm/sysmon-config/blob/develop/sysmonconfig-export.xml)
+* [ion-storm / sysmon-config](https://github.com/ion-storm/sysmon-config/blob/develop/sysmonconfig-export.xml)

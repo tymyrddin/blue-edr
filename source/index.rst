@@ -55,6 +55,10 @@ Security operations & monitoring
    docs/sysmon/README.md
    docs/sysmon/overview.md
    docs/sysmon/noise.md
+   docs/sysmon/metasploit.md
+   docs/sysmon/mimikatz.md
+   docs/sysmon/malware.md
+   docs/sysmon/persistence.md
    docs/sysmon/investigations.md
 
 .. toctree::

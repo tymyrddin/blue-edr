@@ -12,5 +12,9 @@ To monitor and log endpoints and environments and detect malicious activity by t
 
 * [Overview](overview.md)
 * [Cutting out the noise](noise.md)
+* [Hunting metasploit](metasploit.md)
+* [Detecting mimikatz](mimikatz.md)
+* [Hunting malware](malware.md)
+* [Hunting persistence](persistence.md)
 * [Practical investigations](investigations.md)
 
