@@ -10,6 +10,7 @@ To monitor and log endpoints and environments and detect malicious activity by t
 
 ## How?
 
+* [Overview](overview.md)
 * [Cutting out the noise](noise.md)
 * [Practical investigations](investigations.md)
 

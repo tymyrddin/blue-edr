@@ -53,6 +53,7 @@ Security operations & monitoring
    :caption: Sysmon
 
    docs/sysmon/README.md
+   docs/sysmon/overview.md
    docs/sysmon/noise.md
    docs/sysmon/investigations.md
 
