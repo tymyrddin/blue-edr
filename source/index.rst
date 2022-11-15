@@ -1,8 +1,8 @@
 Security operations & monitoring
 ============================================================
 
-.. image:: _static/images/in-progress.png
-  :alt: In progress ...
+.. image:: _static/images/soc-team-services.png
+  :alt: SOC Team services
 
 .. toctree::
    :glob:
@@ -45,6 +45,52 @@ Security operations & monitoring
    docs/wlogs/events.md
    docs/wlogs/xpath.md
    docs/wlogs/scenarios.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Sysmon
+
+   docs/sysmon/README.md
+   docs/sysmon/noise.md
+   docs/sysmon/investigations.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Osquery basics
+
+   docs/osquery/README.md
+   docs/osquery/shell.md
+   docs/osquery/schemas.md
+   docs/osquery/queries.md
+   docs/osquery/challenge.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Splunk basics
+
+   docs/splunk/README.md
+   docs/splunk/components.md
+   docs/splunk/navigation.md
+   docs/splunk/data.md
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Boss of the SOC
+
+   docs/bots/README.md
+   docs/bots/data.md
+   docs/bots/100.md
+   docs/bots/200.md
+   docs/bots/300.md
+   docs/bots/400.md
 
 .. toctree::
    :caption: Links
