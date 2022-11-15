@@ -9,7 +9,7 @@ suspicious processes created.
 
 This method of hunting can be applied to other various RATs and C2 beacons.
 
-## Config
+## Network Connections config
 
 Modify the Ion-Security configuration to detect the creation of new network connections. Use event `ID 3` along with 
 the destination port to identify active connections specifically connections on port `4444` and `5555`. 
@@ -21,7 +21,7 @@ the destination port to identify active connections specifically connections on 
         </NetworkConnect>
     </RuleGroup>
 
-## A basic exploit
+## Metasploit payload dropped
 
 Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx` in Event Viewer to view a basic 
 Metasploit payload being dropped onto the machine.

@@ -1,8 +1,8 @@
 Security operations & monitoring
 ============================================================
 
-.. image:: _static/images/soc-team-services.png
-  :alt: SOC Team services
+.. image:: _static/images/in-progress.png
+  :alt: In Progress
 
 .. toctree::
    :glob:
@@ -59,6 +59,7 @@ Security operations & monitoring
    docs/sysmon/mimikatz.md
    docs/sysmon/malware.md
    docs/sysmon/persistence.md
+   docs/sysmon/evasion.md
    docs/sysmon/investigations.md
 
 .. toctree::

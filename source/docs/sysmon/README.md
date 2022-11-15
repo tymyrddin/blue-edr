@@ -16,5 +16,6 @@ To monitor and log endpoints and environments and detect malicious activity by t
 * [Detecting mimikatz](mimikatz.md)
 * [Hunting malware](malware.md)
 * [Hunting persistence](persistence.md)
+* [Detecting evasion techniques](evasion.md)
 * [Practical investigations](investigations.md)
 

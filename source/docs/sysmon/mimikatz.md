@@ -36,7 +36,7 @@ To aid in detections, use a custom configuration file:
         </ProcessAccess>
     </RuleGroup>
 
-## A basic exploit
+## Obfuscated version of mimikatz dumping credentials
 
 Open `C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_LSASS.evtx` in Event Viewer to view an attack using 
 an obfuscated version of mimikatz to dump credentials from memory.
