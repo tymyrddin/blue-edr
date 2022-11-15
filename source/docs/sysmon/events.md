@@ -1,12 +1,10 @@
-# Overview
+# Event IDs
 
 Sysmon gathers detailed and high-quality logs as well as event tracing that assists in identifying anomalies in the 
 environment. Sysmon is most commonly used in conjunction with security information and event management (SIEM) system 
 or other log parsing solutions that aggregate, filter, and visualize events. When installed on an endpoint, Sysmon 
 will start early in the Windows boot process. In an ideal scenario, the events would be forwarded to a SIEM for 
 further analysis.
-
-## Event IDs
 
 Sysmon includes 29 different types of Event IDs, all of which can be used within the config to specify how the events 
 should be handled and analysed.

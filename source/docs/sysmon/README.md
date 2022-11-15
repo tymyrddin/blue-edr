@@ -10,7 +10,7 @@ To monitor and log endpoints and environments and detect malicious activity by t
 
 ## How?
 
-* [Overview](events.md)
+* [Event IDs](events.md)
 * [Cutting out the noise](noise.md)
 * [Hunting metasploit](metasploit.md)
 * [Detecting mimikatz](mimikatz.md)
