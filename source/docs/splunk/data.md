@@ -36,4 +36,9 @@ How many VPN Events were observed by the IP 107.3.206.58?
 |:--:|
 | Answer: `14` |
 
-That's it.
+## More rooms
+
+* [Incident Handling with Splunk](https://tryhackme.com/room/splunk201)
+* [Investigating With Splunk](http://tryhackme.com/jr/investigatingwithsplunk)
+* [Benign - Challenge](http://tryhackme.com/jr/benign)
+* [PoshEclipse - Challenge](http://tryhackme.com/jr/posheclipse)
