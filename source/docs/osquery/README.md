@@ -13,5 +13,4 @@ To query an endpoint (or multiple endpoints) using SQL syntax.
 * [Osquery shell](shell.md)
 * [Schema documentation](schemas.md)
 * [Creating queries](queries.md)
-* [Challenge](challenge.md)
 

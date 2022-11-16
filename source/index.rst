@@ -72,7 +72,6 @@ Security operations & monitoring
    docs/osquery/shell.md
    docs/osquery/schemas.md
    docs/osquery/queries.md
-   docs/osquery/challenge.md
 
 .. toctree::
    :glob:

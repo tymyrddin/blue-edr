@@ -71,7 +71,7 @@ This event ID is will log events when files are created or overwritten the endpo
 
 The above code snippet is an example of a ransomware event monitor. This is just one example of a variety of different ways you can utilize Event ID 11.
 
-### Event ID 12 / 13 / 14: Registry Event
+### Event ID 12/13/14: Registry Event
 
 This event looks for changes or modifications to the registry. Malicious activity from the registry can include persistence and credential abuse. This event uses TargetObject XML tags.
 
