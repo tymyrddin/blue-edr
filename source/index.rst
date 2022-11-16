@@ -1,8 +1,7 @@
 Security operations & monitoring
 ============================================================
 
-.. image:: _static/images/in-progress.png
-  :alt: In Progress
+Configure and use tooling to detect suspicious activity.
 
 .. toctree::
    :glob:
