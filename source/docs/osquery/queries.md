@@ -95,9 +95,9 @@ included in the query, `osquery` will give an error.
     W1017 12:38:29.730041 45744 virtual_table.cpp:976] Please see the table documentation: https://osquery.io/schema/#file
     Error: constraint failed
 
-## Joining Tables
+## Joining tables
 
-OSquery can also be used to join two tables based on a column that is shared by both tables.
+Osquery can also be used to join two tables based on a column that is shared by both tables.
 
     osquery>.schema users
     CREATE TABLE users(`uid` BIGINT, `gid` BIGINT, `uid_signed` BIGINT, `gid_signed` BIGINT, `username` TEXT, `description` TEXT, `directory` TEXT, `shell` TEXT, `uuid` TEXT, `type` TEXT, `is_hidden` INTEGER HIDDEN, `pid_with_namespace` INTEGER HIDDEN, PRIMARY KEY (`uid`, `username`, `uuid`, `pid_with_namespace`)) WITHOUT ROWID;

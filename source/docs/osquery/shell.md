@@ -61,3 +61,6 @@ To display the columns from the user table:
                        list     Values delimited by .separator string
                        pretty   Pretty printed SQL results (default)
 
+## Resources
+
+* [osquery readthedocs](https://osquery.readthedocs.io/en/stable/)
