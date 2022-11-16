@@ -1,8 +1,8 @@
-# Introduction
-
-| ![Sysinternals](../../_static/images/sysinternals.png)
+| ![Sysinternals](../../_static/images/sysinternals-room-banner.png)
 |:--:|
 | [THM Room: Sysinternals](https://tryhackme.com/room/btsysinternalssg) |
+
+# Introduction
 
 ## What?
 

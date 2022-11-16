@@ -1,8 +1,8 @@
-# Introduction
-
-| ![Windows core boot](../../_static/images/windows-boot.png)
+| ![Windows core processes](../../_static/images/windows-core-room-banner.png)
 |:--:|
-| Windows core boot |
+| [THM Room: Windows core processes](https://tryhackme.com/room/btwindowsinternals) |
+
+# Introduction
 
 ## What?
 
@@ -13,6 +13,10 @@ Exploring the core processes within a Windows OS and understand what normal beha
 This foundational knowledge will help identify malicious processes running on an endpoint.
 
 ## How?
+
+| ![Windows core boot](../../_static/images/windows-boot.png)
+|:--:|
+| Windows core boot |
 
 * [smss.exe](smss.md)
 * [csrss.exe](csrss.md)

@@ -1,12 +1,16 @@
+| ![Windows sysmon](../../_static/images/sysmon-room-banner.png)
+|:--:|
+| [THM Room: Sysmon](https://tryhackme.com/room/sysmon) |
+
 # Introduction
 
 ## What?
 
-Sysmon is a tool is part of the SysInternals Suite, and used for monitoring and logging events on Windows.
+Sysmon (SysInternals Suite) can be used for monitoring and logging events on Windows endpoints and environments.
 
 ## Why?
 
-To monitor and log endpoints and environments and detect malicious activity by tracking code and network traffic.
+To detect malicious activity by tracking code and network traffic.
 
 ## How?
 

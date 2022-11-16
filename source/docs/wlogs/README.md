@@ -1,3 +1,7 @@
+| ![Windows event logs](../../_static/images/eventlogs-room-banner.png)
+|:--:|
+| [THM Room: Windows event logs](https://tryhackme.com/room/windowseventlogs) |
+
 # Introduction
 
 ## What?

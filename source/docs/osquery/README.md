@@ -1,3 +1,7 @@
+| ![osquery](../../_static/images/osquery-room-banner.png)
+|:--:|
+| [THM Room: Osquery: The Basics](https://tryhackme.com/room/osqueryf8) |
+
 # Introduction
 
 ## What?
