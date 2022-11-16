@@ -1,5 +1,9 @@
 # Introduction
 
+| ![Splunk Basics](../../_static/images/splunk.png)
+|:--:|
+| [THM Room: Splunk Basics](https://tryhackme.com/room/splunk101) |
+
 ## What?
 
 Splunk is one of the leading SIEM solutions.
