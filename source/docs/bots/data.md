@@ -31,7 +31,7 @@ Metadata command:
 
 | ![Splunk Metadata](../../_static/images/splunk-metadata.png)
 |:--:|
-| All Time. Set it to ALL TIME |
+| All Time. Set it to OTHER:ALL TIME |
 
 ## Resources
 
