@@ -79,6 +79,7 @@ Configure and use tooling to detect suspicious activity.
    :caption: Wazuh
 
    docs/wazuh/README.md
+   docs/wazuh/nutshell.md
 
 .. toctree::
    :caption: Links
