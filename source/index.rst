@@ -1,4 +1,4 @@
-Endpoint security monitoring
+Endpoint detection and response
 ============================================================
 
 Configure and use tooling to detect suspicious activity.
