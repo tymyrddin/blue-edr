@@ -1,7 +1,7 @@
-# Security operations & monitoring
+# Endpoint detection and response
 
-![Publish blue-secops using Sphinx](https://github.com/tymyrddin/blue-secops/workflows/Publish%20blue-secops%20using%20Sphinx/badge.svg?branch=main)
- Deployed: https://tymyrddin.github.io/blue-secops/
+![Publish blue-edr using Sphinx](https://github.com/tymyrddin/blue-edr/workflows/Publish%20blue-edr%20using%20Sphinx/badge.svg?branch=main)
+ Deployed: https://tymyrddin.github.io/blue-edr/
 
 Built with [Sphinx](https://www.sphinx-doc.org) using a [theme](https://github.com/readthedocs/sphinx_rtd_theme) provided
 by [Read the Docs](https://readthedocs.org/).
@@ -26,7 +26,7 @@ $ make html
 
 This project welcomes contributions and suggestions. 
 
-[Open an issue here](https://github.com/tymyrddin/blue-secops/issues)
+[Open an issue here](https://github.com/tymyrddin/blue-edr/issues)
 
 ## Mind
 
