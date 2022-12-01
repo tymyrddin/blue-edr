@@ -1,4 +1,4 @@
-Security operations & monitoring
+Endpoint security monitoring
 ============================================================
 
 Configure and use tooling to detect suspicious activity.
@@ -76,25 +76,9 @@ Configure and use tooling to detect suspicious activity.
    :glob:
    :maxdepth: 1
    :includehidden:
-   :caption: Splunk basics
+   :caption: Wazuh
 
-   docs/splunk/README.md
-   docs/splunk/components.md
-   docs/splunk/navigation.md
-   docs/splunk/data.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Boss of the SOC
-
-   docs/bots/README.md
-   docs/bots/data.md
-   docs/bots/100.md
-   docs/bots/200.md
-   docs/bots/300.md
-   docs/bots/400.md
+   docs/wazuh/README.md
 
 .. toctree::
    :caption: Links

@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Security operations & monitoring'
+project = 'Endpoint security monitoring'
 copyright = '2022, Ty Myrddin'
 author = 'Ty Myrddin'
 release = '0.1'
