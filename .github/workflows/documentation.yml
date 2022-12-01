@@ -1,4 +1,4 @@
-name: Publish blue-secops using Sphinx
+name: Publish blue-edr using Sphinx
 
 on:
   push:
