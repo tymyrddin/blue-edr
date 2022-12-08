@@ -84,4 +84,4 @@ Configure and use tooling to detect suspicious activity.
 .. toctree::
    :caption: Links
 
-   Blue Team <https://tymyrddin.github.io/blue/>
+   Blue Team <https://blue.tymyrddin.dev/>
