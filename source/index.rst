@@ -1,4 +1,4 @@
-Endpoint detection and response
+Endpoint detection and response (EDR)
 ============================================================
 
 Configure and use tooling to detect suspicious activity.
@@ -80,8 +80,3 @@ Configure and use tooling to detect suspicious activity.
 
    docs/wazuh/README.md
    docs/wazuh/nutshell.md
-
-.. toctree::
-   :caption: Links
-
-   Blue Team <https://blue.tymyrddin.dev/>
