@@ -14,7 +14,6 @@ To analyse Windows systems and applications.
 
 ## How?
 
-* [Using Sysinternals Live](live.md)
 * [File and disk utilities](file.md)
 * [Networking utilities](network.md)
 * [Process utilities](process.md)

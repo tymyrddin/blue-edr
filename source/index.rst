@@ -3,6 +3,20 @@ Endpoint detection and response (EDR)
 
 Configure and use tooling to detect suspicious activity.
 
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: Testlab
+
+   Endpoint Detection and Response tools <https://blue.tymyrddin.dev/projects/testlab/en/latest/docs/edr/README.html>
+
+----
+
+TryHackMe rooms
+-------------------------------------
+
 .. toctree::
    :glob:
    :maxdepth: 1
@@ -26,7 +40,6 @@ Configure and use tooling to detect suspicious activity.
    :caption: Windows sysinternals
 
    docs/sysinternals/README.md
-   docs/sysinternals/live.md
    docs/sysinternals/file.md
    docs/sysinternals/network.md
    docs/sysinternals/process.md
@@ -71,12 +84,3 @@ Configure and use tooling to detect suspicious activity.
    docs/osquery/shell.md
    docs/osquery/schemas.md
    docs/osquery/queries.md
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-   :includehidden:
-   :caption: Wazuh
-
-   docs/wazuh/README.md
-   docs/wazuh/nutshell.md
