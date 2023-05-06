@@ -3,6 +3,9 @@ Endpoint detection and response (EDR)
 
 Configure and use tooling to detect suspicious activity.
 
+.. image:: _static/images/in-progress.png
+  :alt: Forever in progress ...
+
 ----
 
 .. toctree::
