@@ -3,7 +3,7 @@
 Built with [Sphinx](https://www.sphinx-doc.org) using a [theme](https://github.com/readthedocs/sphinx_rtd_theme) provided
 by [Read the Docs](https://readthedocs.org/).
 
-[![Documentation Status](https://readthedocs.org/projects/blue-edr/badge/?version=latest)](https://blue.tymyrddin.dev/projects/edr/en/latest/?badge=latest)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3bc21372-2e61-4fdb-aeb0-f8cb2359b105/deploy-status)](https://app.netlify.com/sites/cheerful-clafoutis-901199/deploys)
 
 ## Requirements
 
