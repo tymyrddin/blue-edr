@@ -13,7 +13,7 @@ Configure and use tooling to detect suspicious activity.
    :includehidden:
    :caption: Testlab
 
-   Endpoint Detection and Response tools <https://blue.tymyrddin.dev/projects/testlab/en/latest/docs/edr/README.html>
+   Endpoint Detection and Response tools <https://testlab.tymyrddin.dev/docs/edr/README>
 
 ----
 
