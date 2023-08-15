@@ -44,8 +44,11 @@ Sound hypothesis: [Event Triggered Execution: Windows Management Instrumentation
 * User: CYBERCORP\john.goldberg 
 * Process ID: 5772
 * CommandLineEventConsumer.Name: PowerControl Consumer
+* Related event ID's (IoC's): Event ID 19: WmiEvent (WmiEventFilter activity detected); Event ID 20: WmiEvent (WmiEventConsumer activity detected), and Event ID 21: WmiEvent (WmiEventConsumerToFilter activity).
 
 ***Q2 In the previous step, you looked for traces of the attacker's persistence in the compromised system through a WMI subscription mechanism. Now find the process that installed the WMI subscription. Answer the question by specifying the PID of that process and the name of its executable file, separated by a comma without spaces. Sample answer: 1200,program.exe.***
+
+Look for a process just prior to the WMI subscription.
 
 ![proc_file_name](../../_static/images/cybercorp2-3.png)
 
@@ -59,13 +62,23 @@ proc_id:5772 AND event_type: FileOpen AND *zip*
 
 ***Q4 The file mentioned in question 3, is not malicious in and of itself, but when it is opened, another file is downloaded from the Internet that already contains the malicious code. Answer the question by specifying the address, from which this file was downloaded, and the SHA256 hash of the downloaded file, separated by commas without spaces. Sample answer: 192.168.0.1,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
+The [enrich processor](https://www.elastic.co/guide/en/elasticsearch/reference/current/enrich-processor.html) can enrich documents with data from another index. The `enrich.ioa.*` set of fields indicate suspiciousness. For example, setting`enrich.ioa.max_severity` to `exists`, the results show events that are `high`, `medium`, or `low`. Setting the `enrich.ioa.max_confidence: exists` filter, the level of confidence that a particular event is malicious is indicated.
+
+To look for a sequence of events **Network Connection -> File Created (file downloaded) -> File Open**:
+
 ```text
-proc_id:5772 AND (event_type: NetworkConnection OR event_type: "FileOpen" OR event_type: "FileCreate")
+proc_id:5772 AND (event_type: NetworkConnection OR event_type: "FileCreate" OR event_type: "FileOpen")
 ```
 
-![found](../../_static/images/cybercorp2-6.png)
+![sequence](../../_static/images/cybercorp2-6.png)
+
+These could be artifacts of a remote `dotm` template injection attack.
 
 ![sha265 hash](../../_static/images/cybercorp2-5.png)
+
+`fontstyles[1].dotm` is a malicious file downloaded from `188.135.15.49`.
+
+This IP address is listed as [malicious/malware on VirusTotal](https://www.virustotal.com/gui/url/da463d5198689aaaff26efa1ecb04025f2146848230cce4bb27d749939373ac8/details).
 
 ***Q5 The malicious code from the file, mentioned in question 4, directly installed a WMI subscription, which we started our hunting with, and also downloaded several files from the Internet to the compromised host. For file downloading, the attacker used a tricky technique that gave him the opportunity to hide the real process, which initiated the corresponding network activity. Specify the SHA256 hash of the operating system component whose functionality was used by the attacker to download files from the Internet. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
