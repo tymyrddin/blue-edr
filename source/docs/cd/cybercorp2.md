@@ -104,11 +104,17 @@ Checking for `event_type = DNSReq`, adding the field `enrich.domaininfo.dns_rnam
 
 ***Q7 The first file downloaded (as a result of executing the code in question 5) contained encoded executable code (PE), which after downloading was recorded in the registry. Specify an MD5 hash of the original representation of that code (PE). Sample answer: d41d8cd98f00b204e9800998ecf8427e***
 
-
+Using `event_type: RegistryValueSet` and expanding the first entry gives a base64 encoded string marked `win_gzipped_data_as_reg_value_data` and `reg_value_data` stores the registry data. Using CyberChef with the recipes **From Base64 -> Gunzip -> MD5** gives the hash of the PE.
 
 ***Q8 The second file downloaded (as a result of code execution, which we talked about in question 5) was a script, that was set up to autostart via WMI Subscription. Specify the SHA256 hash of this script. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
+Looking at events after the WMI subscription event for malicious script downloads with the `enrich.ioa.max_confidence: exist` filter: At `23:26:09`, the file `MSO1033.ps1` was downloaded and stored in `C:\Users\john.goldberg\AppData\Roaming\Microsoft\Office\`, after which a WMI subscription was set (`event_type = WMIConsumerCreate`). The goal of this WMI object is to run the command:
 
+```text
+powershell.exe -noP -ep bypass iex -c "('C:\Users\john.goldberg\AppData\Roaming\Microsoft\Office\MSO1033.ps1')"
+```
+
+The hash of `MSO1033.ps1` is the answer.
 
 ***Q9 The script, mentioned in question 8, spawned one of the legitimate system processes and injected into its memory a malicious code that was read and decoded from the registry (this code was mentioned in question 7). This malicious code migrated through a chain of code injections to the address space of another legitimate process, where it continued to run without further migration.***
 
@@ -116,7 +122,61 @@ Checking for `event_type = DNSReq`, adding the field `enrich.domaininfo.dns_rnam
 * ***PID of the initial legitimate system process, which was spawned by the script and where this script launched in-memory execution of malicious code;***
 * ***PID of the target process, to which malicious code migrated from the initial process and in the context of which attacker performed different post-exploitation activity Sample answer: 1234,9876***
 
+```text
+(\*file_name:"mso1033.ps1" OR \*_file_path:"mso1033.ps1" OR \*cmdline:"mso1033.ps1") AND event_type:ScriptExecution AND enrich.ioa.max_severity:*
+```
 
+The script was split into 7 events and categorised as `win_empire_functions_and_cmdlets`, `win_possible_reflective_pe_injection_functions`
+
+1. The value of the registry key was decoded with base64 and gzip, and the PE bytes were stored in a byte array `$PEBytes`. 
+2. Invocations of Win32 APIs are done via the `Add-type` cmdlet.
+3. The last lines of the script contain a reference to a variable named `$spawnTo`:
+
+```text
+# spawning of the legitimate dwm.exe process
+$spawnTo = "c:\Windows\System32\dwm.exe"
+```
+
+4. [T1134.004](https://attack.mitre.org/techniques/T1134/004/): Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. A handle to `winlogon.exe` is obtained:
+
+```text
+$hSpoofParent = [Kernel32]::OpenProcess(0x1fffff, 0, $ppid)
+```
+
+5. `PROC_THREAD_ATTRIBUTE_PARENT_PROCESS` is `0x00020000`:
+
+```text
+$result1 = [Kernel32]::UpdateProcThreadAttribute($sInfoEx.lpAttributeList, 
+                                              0, 
+                                              0x00020000,
+                                              $lpValue, 
+                                              [IntPtr]::Size, 
+                                              [IntPtr]::Zero, 
+                                              [IntPtr]::Zero) 
+```
+
+6. `dwm.exe` is spawned with winlogon as the spoofed parent process:
+
+```text
+$result1 = [Kernel32]::CreateProcess($spawnTo,     # call to CreateProcess
+                                  $cmdline, 
+                                  [ref]$SecAttr, 
+                                  [ref]$SecAttr, 
+                                  0,
+                                  0x08080004,
+                                  [IntPtr]::Zero, 
+                                  $currdir, 
+                                  [ref] $sInfoEx, 
+                                  [ref] $pInfo)
+```
+
+Updating the query to:
+
+```text
+(*winlogon.exe* OR *dwm.exe*) AND event_type: ProcessCreate
+```
+
+Put the PID of the spawned process `dwm.exe` first.
 
 ***Q10 The malicious code run by the script is a Reverse Shell. Identify the IP address and port number of its command center. Sample answer: 192.168.0.1:123***
 
