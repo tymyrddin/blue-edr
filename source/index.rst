@@ -17,6 +17,17 @@ Configure and use tooling to detect suspicious activity.
 
 ----
 
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: CyberDefenders challenges
+
+   docs/cd/README.md
+   docs/cd/cybercorp2.md
+
+----
+
 TryHackMe rooms
 -------------------------------------
 
