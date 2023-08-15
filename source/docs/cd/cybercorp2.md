@@ -34,7 +34,7 @@ By analyzing the EDR telemetry in the Threat Hunting platform, you will have to 
 
 ***Q1 The Threat Hunting process usually starts with the analyst making a hypothesis about a possible compromise vector or techniques used by an attacker. In this scenario, your initial hypothesis is as follows: "The attacker used the WMI subscription mechanism to obtain persistence within the infrastructure". Verify this hypothesis and find the name of the WMI Event Consumer used by the attacker to maintain his foothold. Sample answer: Consumer***
 
-Sound hypothesis: [Event Triggered Execution: Windows Management Instrumentation Event Subscription](https://attack.mitre.org/techniques/T1546/003/) (
+Hypothesis: [Event Triggered Execution: Windows Management Instrumentation Event Subscription](https://attack.mitre.org/techniques/T1546/003/) (
 [Atomic Red Team ID: T1546.003](https://github.com/redcanaryco/atomic-red-team/blob/36d49de4c8b00bf36054294b4a1fcbab3917d7c5/atomics/T1546.003/T1546.003.md)).
 
 ![wm_namespace](../../_static/images/cybercorp2-2.png)
@@ -76,17 +76,15 @@ These could be artifacts of a remote `dotm` template injection attack.
 
 ![sha265 hash](../../_static/images/cybercorp2-5.png)
 
-`fontstyles[1].dotm` is a malicious file downloaded from `188.135.15.49`.
-
-This IP address is listed as [malicious/malware on VirusTotal](https://www.virustotal.com/gui/url/da463d5198689aaaff26efa1ecb04025f2146848230cce4bb27d749939373ac8/details).
+`fontstyles[1].dotm` is a malicious file downloaded from `188.135.15.49`. This IP address is listed as [malicious/malware on VirusTotal](https://www.virustotal.com/gui/url/da463d5198689aaaff26efa1ecb04025f2146848230cce4bb27d749939373ac8/details).
 
 ***Q5 The malicious code from the file, mentioned in question 4, directly installed a WMI subscription, which we started our hunting with, and also downloaded several files from the Internet to the compromised host. For file downloading, the attacker used a tricky technique that gave him the opportunity to hide the real process, which initiated the corresponding network activity. Specify the SHA256 hash of the operating system component whose functionality was used by the attacker to download files from the Internet. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
-
+The "Hunting for advanced Tactics, Techniques and Procedures (TTPs)" article refers to a technique in which Internet Explorer COM objects are used in scripts or macros to interact with Internet resources. Parent child process dechaining takes place which may help evade some EDRs. This technique appears to have been used here: `winword.exe` loads `ieproxy.dll` followed by DNS request(s). The hash of the `ieproxy.dll` is the answer.
 
 ***Q6 Specify the domain name of the resource from which the files mentioned in question 5 were supposedly downloaded as a result of malicious code execution. Sample answer: sub.domain.com***
 
-
+Checking for `event_type = DNSReq`, adding the field `enrich.domaininfo.dns_rname.domain` and applying the `enrich.ioa.rules` filter, shows DNS requests to GitHub via `iexplorer.exe`. 
 
 ***Q7 The first file downloaded (as a result of executing the code in question 5) contained encoded executable code (PE), which after downloading was recorded in the registry. Specify an MD5 hash of the original representation of that code (PE). Sample answer: d41d8cd98f00b204e9800998ecf8427e***
 
