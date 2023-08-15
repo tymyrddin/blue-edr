@@ -54,9 +54,25 @@ Look for a process just prior to the WMI subscription.
 
 ***Q3 "The process described in the previous question was used to open a file extracted from the archive that user received by email. Specify a SHA256 hash of the file extracted and opened from the archive. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"***
 
+The opened file was extracted from an archive received by email:
+
 ```text
-proc_id:5772 AND event_type: FileOpen AND *zip*
+proc_id:5772 AND event_type: FileOpen AND (*zip* OR *rar*)
 ```
+
+Gives:
+
+```text
+Process 'c:\program files (x86)\microsoft office\office16\outlook.exe' created file 'c:\users\john.goldberg\appdata\local\microsoft\windows\inetcache\content.outlook\dfn3sfep\report.zip'
+```
+
+The archive `report.zip` was opened via email using the program `outlook.exe`.
+
+```text
+'c:\windows\explorer.exe' ➔ 'c:\program files (x86)\microsoft office\office16\winword.exe' ➔ 'c:\users\john.goldberg\appdata\local\temp\temp1_report.zip\market forecast emea.docx'`. 
+```
+
+`Market forecaste emea.docx` was opened via `winword.exe` and the temporary folder for it is `temp1_report.zip`. The hash for this `.docx` file is the answer:
 
 ![sha265 hash](../../_static/images/cybercorp2-4.png)
 
