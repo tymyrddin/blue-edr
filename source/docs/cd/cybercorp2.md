@@ -26,7 +26,7 @@ By analyzing the EDR telemetry in the Threat Hunting platform, you will have to 
 
 * Download the VM, [watch the vid](https://www.youtube.com/watch?v=PczISJGPvKg), import, change network settings, start the VM.
 * Open Firefox, and click on the Kibana bookmark.
-* Update time range for last 3 years to see when the logs start.
+* Update time range to last 3 years.
 
 ![Kibana start](../../_static/images/cybercorp2-1.png)
 
@@ -34,19 +34,38 @@ By analyzing the EDR telemetry in the Threat Hunting platform, you will have to 
 
 ***Q1 The Threat Hunting process usually starts with the analyst making a hypothesis about a possible compromise vector or techniques used by an attacker. In this scenario, your initial hypothesis is as follows: "The attacker used the WMI subscription mechanism to obtain persistence within the infrastructure". Verify this hypothesis and find the name of the WMI Event Consumer used by the attacker to maintain his foothold. Sample answer: Consumer***
 
+Sound hypothesis: [Event Triggered Execution: Windows Management Instrumentation Event Subscription](https://attack.mitre.org/techniques/T1546/003/) (
+[Atomic Red Team ID: T1546.003](https://github.com/redcanaryco/atomic-red-team/blob/36d49de4c8b00bf36054294b4a1fcbab3917d7c5/atomics/T1546.003/T1546.003.md)).
 
+![wm_namespace](../../_static/images/cybercorp2-2.png)
+
+* Time of Event: Jun 21, 2021 @ 23:25:50.000 
+* Host: DESKTOP-BZ202CP.cybercorp.com 
+* User: CYBERCORP\john.goldberg 
+* Process ID: 5772
+* CommandLineEventConsumer.Name: PowerControl Consumer
 
 ***Q2 In the previous step, you looked for traces of the attacker's persistence in the compromised system through a WMI subscription mechanism. Now find the process that installed the WMI subscription. Answer the question by specifying the PID of that process and the name of its executable file, separated by a comma without spaces. Sample answer: 1200,program.exe.***
 
-
+![proc_file_name](../../_static/images/cybercorp2-3.png)
 
 ***Q3 "The process described in the previous question was used to open a file extracted from the archive that user received by email. Specify a SHA256 hash of the file extracted and opened from the archive. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"***
 
+```text
+proc_id:5772 AND event_type: FileOpen AND *zip*
+```
 
+![sha265 hash](../../_static/images/cybercorp2-4.png)
 
 ***Q4 The file mentioned in question 3, is not malicious in and of itself, but when it is opened, another file is downloaded from the Internet that already contains the malicious code. Answer the question by specifying the address, from which this file was downloaded, and the SHA256 hash of the downloaded file, separated by commas without spaces. Sample answer: 192.168.0.1,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
+```text
+proc_id:5772 AND (event_type: NetworkConnection OR event_type: "FileOpen" OR event_type: "FileCreate")
+```
 
+![found](../../_static/images/cybercorp2-6.png)
+
+![sha265 hash](../../_static/images/cybercorp2-5.png)
 
 ***Q5 The malicious code from the file, mentioned in question 4, directly installed a WMI subscription, which we started our hunting with, and also downloaded several files from the Internet to the compromised host. For file downloading, the attacker used a tricky technique that gave him the opportunity to hide the real process, which initiated the corresponding network activity. Specify the SHA256 hash of the operating system component whose functionality was used by the attacker to download files from the Internet. Sample answer: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855***
 
