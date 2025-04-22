@@ -11,7 +11,20 @@ Configure and use tooling to detect suspicious activity.
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: Testlab
+   :caption: Vulnerability scanners @GitHub
+
+   Windows vulnerability scanner <https://github.com/tymyrddin/codes-edr/blob/main/vuln-discovery-windows>
+   MacOS vulnerability scanner <https://github.com/tymyrddin/codes-edr/blob/main/vuln-discovery-macos>
+   Linux vulnerability scanner <https://github.com/tymyrddin/codes-edr/blob/main/vuln-discovery-linux>
+   Android vulnerability scanner <https://github.com/tymyrddin/codes-edr/blob/main/vuln-discovery-android>
+   iOS vulnerability scanner <https://github.com/tymyrddin/codes-edr/blob/main/vuln-discovery-ios>
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: @Testlab
 
    Endpoint Detection and Response tools <https://testlab.tymyrddin.dev/docs/edr/README>
 
@@ -84,3 +97,4 @@ Configure and use tooling to detect suspicious activity.
    docs/osquery/shell.md
    docs/osquery/schemas.md
    docs/osquery/queries.md
+
