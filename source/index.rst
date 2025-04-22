@@ -1,7 +1,8 @@
 Endpoint detection and response (EDR)
 ============================================================
 
-Configure and use tooling to detect suspicious activity.
+Endpoint Detection and Response (EDR) is no longer optional. It is a core pillar of cybersecurity and regulations
+mandate EDR.
 
 .. image:: _static/images/in-progress.png
   :alt: Forever in progress ...
@@ -24,11 +25,71 @@ Configure and use tooling to detect suspicious activity.
 .. toctree::
    :maxdepth: 1
    :includehidden:
-   :caption: @Testlab
+   :caption: Tools @Testlab
 
    Endpoint Detection and Response tools <https://testlab.tymyrddin.dev/docs/edr/README>
+   Threat hunting tools <https://testlab.tymyrddin.dev/docs/hunting/readme>
 
 ----
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: macOS EDR techniques
+
+   docs/macos/README.md
+   docs/macos/process.md
+   docs/macos/memory.md
+   docs/macos/behavioural.md
+   docs/macos/network.md
+
+----
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Linux EDR techniques
+
+   docs/linux/README.md
+   docs/linux/kernel.md
+   docs/linux/fs.md
+   docs/linux/container.md
+   docs/linux/hunting.md
+
+----
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+   :includehidden:
+   :caption: Windows EDR techniques
+
+   docs/windows/README.md
+   docs/windows/process.md
+   docs/windows/memory.md
+   docs/windows/asr.md
+   docs/windows/network.md
+   docs/windows/logging.md
+   docs/windows/response.md
+
+----
+
+.. toctree::
+   :maxdepth: 1
+   :includehidden:
+   :caption: EDR shell scripts @GitHub
+
+   Windows EDR powershell script <https://github.com/tymyrddin/codes-edr/blob/main/cheatsheet-windows>
+   MacOS EDR shell script <https://github.com/tymyrddin/codes-edr/blob/main/cheatsheet-macos>
+   Linux EDR shell script <https://github.com/tymyrddin/codes-edr/blob/main/cheatsheet-linux>
+
+----
+
+=================
+TryHackMe Room
+=================
 
 .. toctree::
    :glob:
